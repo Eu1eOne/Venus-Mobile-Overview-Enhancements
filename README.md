@@ -1,6 +1,8 @@
 # Venus-Mobile-Overview-Enhancements
 This replaces the Mobile Overview page in Victron Venus OS to add additional information
 
+A new file: SystemReasonMessage.qml is added to provide text readout of ESS "reason codes"
+
 This version supports Venus versions 2.4 and 2.5
 
 Changes to the screen:
@@ -24,9 +26,13 @@ Changes to the screen:
   Code was also added to hide a SeeLevel dBus (NMEA2000 tank sensor) service if present
   because that object constantly switches tanks
   These changes have no effect on other tanks or systems
+  
+  Show ESS "reason codes" as text rather than "#1", etc.
+  Combine ESS reason codes with the notification Marquee, saving vertical space on the tile.
 
-All changes are included in a single file: OverviewMobile.qml.
-To install, rename the existing file in /opt/victronenergy/gui/qml and copy this one to the same directory.
+All changes are included in a two files file: OverviewMobile.qml, SystemReasonMessage.qml.
+To install, rename the existing OverviewMobile.qml file in /opt/victronenergy/gui/qml to preserve it in case you wish to back out the changes in the future.
+Copy both of these files to the same directory.
 You will need to kill the gui process or reboot the CCGX to see the changes.
 
 
