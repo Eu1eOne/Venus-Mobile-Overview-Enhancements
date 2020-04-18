@@ -17,7 +17,7 @@ import "utils.js" as Utils
 // hide "reason" text if it's blank to save space
 // changed clock to 12-hour format
 // Capitialized battery state: "Idle", "Charging", "Discharging"
-// errors and notificaitonsin SYSTEM/STATUS tile may push clock off bottom of tile
+// errors and notificaitons in SYSTEM/STATUS tile may push clock off bottom of tile
 // Tile content for items that are not present are made invisible - tile remains in place
 // that is  no height adjustments when a tile provides no information
 // Adjust button widths so that pump button fits within tank column
@@ -36,8 +36,7 @@ OverviewPage {
 //////// SeeLevel - The name of the SeeLevel dBus service
 // WILL NEED TO BE CHANGED FOR EACH SYSTEM
 // a null string prevents hiding any service
-    property string seeLevelServieName: ""
-//    example: property string seeLevelServieName: "com.victronenergy.tank.socketcan_can0_vi0_uc855"
+    property string seeLevelServieName: "com.victronenergy.tank.socketcan_can0_vi0_uc855"
 
     property variant sys: theSystem
     property string settingsBindPreffix: "com.victronenergy.settings"
@@ -131,6 +130,10 @@ OverviewPage {
                     wrapMode: Text.WordWrap
                     width: statusTile.width
                 },
+                TileText {
+                    text: wallClock.time
+                    font.pixelSize: 20
+                },
 //////// spacer to separate Multi mode from system name
                 TileText {
                     text: " "
@@ -145,24 +148,20 @@ OverviewPage {
                     }
                 },
 
-                TileText {
-                    text: systemReason.text
-                    SystemReason {
-                        id: systemReason
-                    }
-//////// don't consume space if reason is null
-                    visible: systemReason.text != ""
-                },
-
+//////// combine SystemReason with notifications
                 Marquee {
-                    text: notificationText()
+                    text:
+                    {
+                        if (activeNotifications.length === 0)
+                            return systemReasonMessage.text
+                        else
+                            return notificationText() + " || " + systemReasonMessage.text
+                    }
                     width: statusTile.width
                     interval: 100
-                },
-                //////// clock on bottom - will be pushed off bottom of tile if space needed for errors
-                TileText {
-                    text: wallClock.time
-                    font.pixelSize: 20
+                    SystemReasonMessage {
+                        id: systemReasonMessage
+                    }
                 }
 //////// remove speed to make more room
             ]
@@ -707,7 +706,7 @@ OverviewPage {
 	function notificationText()
 	{
 		if (activeNotifications.length === 0)
-			return qsTr("no alarms")
+			return qsTr("")
 
 		var descr = []
 		for (var n = 0; n < activeNotifications.length; n++) {
