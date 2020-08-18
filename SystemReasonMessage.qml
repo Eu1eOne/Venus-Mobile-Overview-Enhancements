@@ -32,7 +32,7 @@ Item {
 //			"Battery Life",
 			"Charge Off",
 			"Disch Off",
-			"Slow Charg",
+			"Slow Charge",
 			"Charge Limited",
 			"Disch Limited"
 		]
