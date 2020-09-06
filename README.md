@@ -22,6 +22,7 @@ Changes to the screen:
   Hide pump button when not enabled giving more room for tanks
   All tiles (except tank info) is within a single ListView rather than in separate columns
   making it easier to rearrange, add or remove tiles
+  Added INVERTER ONLY to AC MODE selection
 
   Code was also added to hide a SeeLevel dBus (NMEA2000 tank sensor) service if present
   because that object constantly switches tanks
