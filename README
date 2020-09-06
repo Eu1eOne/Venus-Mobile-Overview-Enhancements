@@ -29,7 +29,7 @@ Changes to the screen:
   These changes have no effect on other tanks or systems
   
   Show ESS "reason codes" as text rather than "#1", etc.
-  Combine ESS reason codes with the notification Marquee, saving vertical space on the tile.
+  Combine ESS reason codes with the notification Marquee, saving vertical space on the tile. 
 
 All changes are included in a two files file: OverviewMobile.qml, SystemReasonMessage.qml.
 To install, rename the existing OverviewMobile.qml file in /opt/victronenergy/gui/qml to preserve it in case you wish to back out the changes in the future.
