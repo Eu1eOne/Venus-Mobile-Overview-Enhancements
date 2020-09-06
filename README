@@ -32,7 +32,8 @@ Changes to the screen:
   Combine ESS reason codes with the notification Marquee, saving vertical space on the tile.
 
 All changes are included in a two files file: OverviewMobile.qml, SystemReasonMessage.qml.
-To install, rename the existing OverviewMobile.qml file in /opt/victronenergy/gui/qml to preserve it in case you wish to back out the changes in the future.
+To install, rename the existing OverviewMobile.qml file in /opt/victronenergy/gui/qml to
+preserve it in case you wish to back out the changes in the future.
 Copy both of these files to the same directory.
 You will need to kill the gui process or reboot the CCGX to see the changes.
 
