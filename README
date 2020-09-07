@@ -3,7 +3,7 @@ This replaces the Mobile Overview page in Victron Venus OS to add additional inf
 
 A new file: SystemReasonMessage.qml is added to provide text readout of ESS "reason codes"
 
-This version supports Venus versions 2.4 and 2.5 and 2.60 release candidates through 42
+This version supports Venus versions 2.4 and 2.5 and 2.60
 
 Changes to the screen:
   Removed logo and added AC INPUT and SYSTEM tiles originally displayed on other overviews
